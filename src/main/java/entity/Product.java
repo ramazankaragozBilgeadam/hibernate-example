@@ -17,8 +17,8 @@ public class Product extends BaseEntity {
     private List<CustomerOrder> customerOrderList;
 
 
-    @ManyToOne
-    @JoinColumn(name = "menu_id",insertable = false,updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "menu_id"/*,insertable = true,updatable = false*/)
     private Menu menu;
 
 
