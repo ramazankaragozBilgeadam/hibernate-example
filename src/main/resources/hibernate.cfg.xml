@@ -16,5 +16,7 @@
         <mapping class="entity.BaseEntity"/>
         <mapping class="entity.Customer"/>
         <mapping class="entity.CustomerOrder"/>
+        <mapping class="entity.Product"/>
+        <mapping class="entity.Menu"/>
     </session-factory>
 </hibernate-configuration>

@@ -11,6 +11,10 @@ public class Customer extends BaseEntity {
     @Column(name = "last_name",length = 35)
     private String lastName;
 
+    /**
+     * ManyToOne ilişkilerde karşı tablonun id ismi yazılır
+     * Ve yazılan id fk olarak tutulur.
+     */
     @ManyToOne
     @JoinColumn(name = "customer_order_id")
     private CustomerOrder customerOrder;
