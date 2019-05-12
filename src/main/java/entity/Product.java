@@ -16,8 +16,13 @@ public class Product extends BaseEntity {
     @ManyToMany(mappedBy = "productList")
     private List<CustomerOrder> customerOrderList;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    /*CascadeType.PERSIST, Sadece Kayıt Atmak İçin Kullanır.
+    CascadeType.DETACH, İlişkili objeleri birbirinden ayırmak İçin Kullanır.
+    CascadeType.MERGE, Sadece Güncellemek için kullanılıur.
+    CascadeType.REFRESH, İlişkili objeleri select atmak için.
+    CascadeType.REMOVE, İlişkili objeleri beraberinde silmek için.
+    CascadeType.ALL Yukarıdaki tüm işlemleri yapıyor.  */
+    @ManyToOne(cascade =CascadeType.ALL)
     @JoinColumn(name = "menu_id"/*,insertable = true,updatable = false*/)
     private Menu menu;
 

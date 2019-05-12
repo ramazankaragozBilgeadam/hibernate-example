@@ -1,4 +1,5 @@
 import dao.ProductDAO;
+import entity.BaseEntity;
 import entity.Menu;
 import entity.Product;
 import util.HibernateUtil;
@@ -25,7 +26,8 @@ public class Main {
         product.setCreatedDate(new Date());
         product.setMenu(menu);
 
-        //productDAO.kaydet(product);
+        productDAO.kaydet(product);
+
 
     }
 }
