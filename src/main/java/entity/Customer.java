@@ -15,7 +15,7 @@ public class Customer extends BaseEntity {
      * ManyToOne ilişkilerde karşı tablonun id ismi yazılır
      * Ve yazılan id fk olarak tutulur.
      */
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_order_id")
     private CustomerOrder customerOrder;
 
@@ -23,9 +23,17 @@ public class Customer extends BaseEntity {
      * OneToOne ilişkilerde karşı tablonun id ismi yazılır
      * Ve yazılan id fk olarak tutulur.
      */
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "information_id")
     private CustomerInformation customerInformation;
+
+    public CustomerInformation getCustomerInformation() {
+        return customerInformation;
+    }
+
+    public void setCustomerInformation(CustomerInformation customerInformation) {
+        this.customerInformation = customerInformation;
+    }
 
     public String getFirsName() {
         return firsName;

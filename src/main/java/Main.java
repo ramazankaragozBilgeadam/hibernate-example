@@ -20,30 +20,60 @@ public class Main {
         //displayProductListWithCriteria();
 
 
+        customerKaydet();
     }
 
 
     public static void customerKaydet(){
 
         CustomerDAO customerDAO=new CustomerDAO();
+        ProductDAO productDAO=new ProductDAO();
+
+        List<Product> productList=productDAO.findAllByMenuId(1L);
 
         CustomerInformation customerInformation=new CustomerInformation();
         customerInformation.setCity("Ankara");
         customerInformation.setPhoneNumber("5318245656");
         customerInformation.setStreet("Sümbül");
-        customerInformation.setDetailAddress("Parkın Karşısı");
+        customerInformation.setDetailAddress("Parkin Karsisi");
         customerInformation.setCreatedBy("Ramazan");
 
         CustomerOrder customerOrder=new CustomerOrder();
         customerOrder.setCreatedBy("Ramazan");
+        customerOrder.setTotal(getOrderTotal(productList));
+        customerOrder.setProductList(productList);
+
+        Customer customer=new Customer();
+        customer.setCustomerOrder(customerOrder);
+        customer.setCustomerInformation(customerInformation);
+        customer.setFirsName("Veli");
+        customer.setLastName("Yılmaz");
+        customer.setCreatedBy("Ramazan");
+
+        customerDAO.kaydet(customer);
 
 
 
     }
 
-    public static Double getOrderTotal(){
+    /**
+     * Müşterinin siparişindeki ürünlerin tutarını hesaplayıp dönen method.
+     * @param productList
+     * @return
+     */
+    public static Double getOrderTotal(List<Product> productList){
 
         Double total=0.0;
+
+        if (productList!=null&&!productList.isEmpty()){
+
+            for (Product product:productList) {
+
+                total+=product.getPrice();
+            }
+
+        }
+
 
 
         return total;

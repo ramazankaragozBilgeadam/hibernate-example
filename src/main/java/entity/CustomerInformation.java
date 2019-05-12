@@ -1,5 +1,7 @@
 package entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
@@ -19,6 +21,7 @@ public class CustomerInformation extends BaseEntity{
      * Büyük text verileri kayıt ederken @Lob kullanıyoruz.
      */
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "detail_address")
     private String detailAddress;
 
