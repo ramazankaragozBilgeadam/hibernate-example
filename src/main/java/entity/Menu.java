@@ -17,7 +17,7 @@ public class Menu extends BaseEntity {
      * ManyToOne ilişkinin tersidir.
      * JoinColumn da verilen fk ismi bağlanan objenin tablosunda tutulur.
      */
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "menu_id")
     private List<Product> productList;
 

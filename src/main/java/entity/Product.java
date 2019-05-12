@@ -26,6 +26,13 @@ public class Product extends BaseEntity {
     @JoinColumn(name = "menu_id"/*,insertable = true,updatable = false*/)
     private Menu menu;
 
+    public Product() {
+    }
+
+    public Product(String productName, Double price) {
+        this.productName = productName;
+        this.price = price;
+    }
 
     public Menu getMenu() {
         return menu;

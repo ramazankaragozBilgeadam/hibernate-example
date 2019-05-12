@@ -13,7 +13,7 @@ public class BaseEntity {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_date")
-    private Date createdDate;
+    private Date createdDate=new Date();
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")

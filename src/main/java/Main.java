@@ -1,33 +1,46 @@
+import dao.MenuDAO;
 import dao.ProductDAO;
 import entity.BaseEntity;
 import entity.Menu;
 import entity.Product;
 import util.HibernateUtil;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Main {
 
 
     public static void main(final String[] args) throws Exception {
 
-        ProductDAO productDAO=new ProductDAO();
+      onMenuKaydet("Menu 1");
+
+    }
+
+
+    public static void onMenuKaydet(String menuName){
+
+        MenuDAO menuDAO=new MenuDAO();
+
+        Product product1=new Product();
+        product1.setProductName("Cortado");
+        product1.setPrice(12.00);
+        product1.setCreatedBy("Ramazan");
+
+        Product product2=new Product("Latte",15.00);
+        product2.setCreatedBy("Ali");
+
+        List<Product> productList=new ArrayList<>();
+        productList.add(product1);
+        productList.add(product2);
+
 
         Menu menu=new Menu();
-        menu.setMenuName("Menu 1");
-        menu.setCreatedBy("Ali");
-        menu.setCreatedDate(new Date());
+        menu.setMenuName(menuName);
+        menu.setProductList(productList);
+        menu.setCreatedBy("Ramazan");
 
-        Product product=new Product();
-
-        product.setPrice(12.0);
-        product.setProductName("Latte");
-        product.setCreatedBy("Ramazan");
-        product.setCreatedDate(new Date());
-        product.setMenu(menu);
-
-        productDAO.kaydet(product);
-
-
+        menuDAO.kaydet(menu);
     }
 }
