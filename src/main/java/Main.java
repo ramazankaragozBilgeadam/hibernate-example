@@ -25,7 +25,7 @@ public class Main {
         product.setCreatedDate(new Date());
         product.setMenu(menu);
 
-        productDAO.kaydet(product);
+        //productDAO.kaydet(product);
 
     }
 }

@@ -19,6 +19,14 @@ public class Customer extends BaseEntity {
     @JoinColumn(name = "customer_order_id")
     private CustomerOrder customerOrder;
 
+    /**
+     * OneToOne ilişkilerde karşı tablonun id ismi yazılır
+     * Ve yazılan id fk olarak tutulur.
+     */
+    @OneToOne
+    @JoinColumn(name = "information_id")
+    private CustomerInformation customerInformation;
+
     public String getFirsName() {
         return firsName;
     }
