@@ -53,4 +53,14 @@ public class BaseEntity {
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
+
+    @Override
+    public String toString() {
+        return "BaseEntity{" +
+                "id=" + id +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                ", createdBy='" + createdBy + '\'' +
+                '}';
+    }
 }

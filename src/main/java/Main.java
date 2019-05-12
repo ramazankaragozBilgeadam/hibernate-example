@@ -14,7 +14,23 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
-      onMenuKaydet("Menu 1");
+      //onMenuKaydet("Menu 1");
+
+      displayProductList(1L);
+
+    }
+
+
+    public static void displayProductList(Long menuId){
+
+        ProductDAO productDAO=new ProductDAO();
+
+        try {
+            productDAO.findAllByMenuId(menuId).stream().forEach(System.out::println);
+        }catch (NullPointerException ex){
+            System.out.println("Products are not found.");
+        }
+
 
     }
 

@@ -13,7 +13,7 @@ public class Product extends BaseEntity {
     @Column(name = "price")
     private Double price;
 
-    @ManyToMany(mappedBy = "productList")
+    @ManyToMany(mappedBy = "productList",fetch = FetchType.LAZY)
     private List<CustomerOrder> customerOrderList;
 
     /*CascadeType.PERSIST, Sadece Kayıt Atmak İçin Kullanır.
@@ -64,5 +64,15 @@ public class Product extends BaseEntity {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productName='" + productName + '\'' +
+                ", price=" + price +
+                ", customerOrderList=" + customerOrderList +
+                ", menu=" + menu +
+                '}';
     }
 }
